@@ -47,10 +47,13 @@ Este aplicativo permitirá a gestão dos ativos do laboratório da Grid Automati
 ## Passos para a criação do projeto
 + Create a new project using Ruby image:  `sudo docker run -it --rm --user "$(id -u):$(id -g)" -v "$PWD":/usr/src/app -w /usr/src/app ruby /bin/bash -c "gem install rails ; rails new engAssetMan2 --skip-bundle --database=postgresql"`
 
-+ Ajusta database.yaml: `xxx`
++ Ajusta database.yaml para incluir : 
 + Start Docker: `systemctl start docker `
 + Installa Gems: `docker-compose run --rm app bundle install`
 + Cria base de dados:`docker-compose run --rm app bundle exec rake db:create db:migrate`
 
-[materialize issues] (https://github.com/docker-library/ruby/issues/226)
- Need to update GEM file. 
++ Atualiza Gemfile 
+ [materialize issues] (https://github.com/docker-library/ruby/issues/226)
+  
+
++ Modelo para geradores incluindo o --user para nao ter problemas de acesso aos arquivos: `docker-compose run -it --rm --user "$(id -u):$(id -g)" app bundle exec rails g controller page index`
