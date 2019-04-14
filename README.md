@@ -51,3 +51,6 @@ Este aplicativo permitirá a gestão dos ativos do laboratório da Grid Automati
 + Start Docker: `systemctl start docker `
 + Installa Gems: `docker-compose run --rm app bundle install`
 + Cria base de dados:`docker-compose run --rm app bundle exec rake db:create db:migrate`
+
+[materialize issues] (https://github.com/docker-library/ruby/issues/226)
+ Need to update GEM file. 

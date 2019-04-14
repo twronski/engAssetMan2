@@ -1,7 +1,11 @@
 FROM ruby:2.6.2
 # Instala nossas dependencias
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
-      build-essential nodejs libpq-dev imagemagick
+      build-essential libpq-dev imagemagick
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+        && apt-get install -y nodejs
+
 # Seta nosso path
 ENV INSTALL_PATH /engassetman
 # Cria nosso diretório
