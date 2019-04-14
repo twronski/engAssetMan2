@@ -9,6 +9,7 @@ This project was generated with Rails 5.2.3 and Ruby 2.6.2.
 + Redis
 + Ruby on Rails
 + Material Design
++ Docker and Docker compose
 
 ### Bibliotecas Ruby (Gems):
 + Devise
@@ -17,6 +18,8 @@ This project was generated with Rails 5.2.3 and Ruby 2.6.2.
 + Rails Admin
 + Better Error
 + Friendly_id
++ Mailcatcher
++ Sidekiq
 + Active Storage
 
 ### Repositório:
@@ -43,3 +46,8 @@ Este aplicativo permitirá a gestão dos ativos do laboratório da Grid Automati
 
 ## Passos para a criação do projeto
 + Create a new project using Ruby image:  `sudo docker run -it --rm --user "$(id -u):$(id -g)" -v "$PWD":/usr/src/app -w /usr/src/app ruby /bin/bash -c "gem install rails ; rails new engAssetMan2 --skip-bundle --database=postgresql"`
+
++ Ajusta database.yaml: `xxx`
++ Start Docker: `systemctl start docker `
++ Installa Gems: `docker-compose run --rm app bundle install`
++ Cria base de dados:`docker-compose run --rm app bundle exec rake db:create db:migrate`

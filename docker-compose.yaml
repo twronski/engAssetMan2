@@ -14,7 +14,7 @@ services:
     volumes:
       - 'redis:/var/lib/redis/data'
   
-    jobs:
+  jobs:
     depends_on:
       - 'postgres'
       - 'redis'
@@ -50,7 +50,7 @@ services:
       - 1025:1025
       - 1080:1080
 
-  volumes:
-    redis:
-    postgres:
-    box:
+volumes:
+  redis:
+  postgres:
+  box:

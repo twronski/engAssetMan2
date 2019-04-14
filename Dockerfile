@@ -3,7 +3,7 @@ FROM ruby:2.6.2
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
       build-essential nodejs libpq-dev imagemagick
 # Seta nosso path
-ENV INSTALL_PATH /onebitforms
+ENV INSTALL_PATH /engassetman
 # Cria nosso diretório
 RUN mkdir -p $INSTALL_PATH
 # Seta o nosso path como o diretório principal
