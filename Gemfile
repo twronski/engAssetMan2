@@ -34,8 +34,17 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 #Included GEMS for this application
+gem 'jquery-rails'
+gem 'materialize-sass'
+gem 'material_icons'
 
+gem 'devise'
+gem 'pundit'
 gem 'sidekiq'
+gem 'rolify'
+gem 'rails_admin', '~> 1.3'
+gem 'friendly_id', '~> 5.2.4'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -43,6 +52,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development do
