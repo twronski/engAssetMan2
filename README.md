@@ -54,6 +54,13 @@ Este aplicativo permitirá a gestão dos ativos do laboratório da Grid Automati
 
 + Atualiza Gemfile 
  [materialize issues] (https://github.com/docker-library/ruby/issues/226)
-  
+
++ Mailcatcher:
+ + Instala as gems
+ + Seta as configuraćões em development.rb
+  `config.action_mailer.default_url_options = { :host => 'localhost:3000' }`
+  `config.action_mailer.delivery_method = :smtp`
+  `config.action_mailer.smtp_settings = { :address => 'mailcatcher', :port => 25 }`
+ + Visite: `http://localhost:1080`  
 
 + Modelo para geradores incluindo o --user para nao ter problemas de acesso aos arquivos: `docker-compose run -it --rm --user "$(id -u):$(id -g)" app bundle exec rails g controller page index`
