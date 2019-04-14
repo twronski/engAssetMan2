@@ -61,6 +61,12 @@ Este aplicativo permitirá a gestão dos ativos do laboratório da Grid Automati
   `config.action_mailer.default_url_options = { :host => 'localhost:3000' }`
   `config.action_mailer.delivery_method = :smtp`
   `config.action_mailer.smtp_settings = { :address => 'mailcatcher', :port => 25 }`
- + Visite: `http://localhost:1080`  
+ + Visite: `http://localhost:1080`
 
++ Mailcatcher:
+ ++ Rails Generate Devise `docker-compose run --rm app bundle exec rails generate devise:install`
+ ++ Devise generate User `docker-compose run --rm app bundle exec rails generate devise User`
+    ++ Create additional fields in the migration
+    ++ Do the migration: `docker-compose run --rm app bundle exec rails db:migrate `
+ ++ Devise Generate Views `docker-compose run --rm app bundle exec rails generate devise:views`
 + Modelo para geradores incluindo o --user para nao ter problemas de acesso aos arquivos: `docker-compose run -it --rm --user "$(id -u):$(id -g)" app bundle exec rails g controller page index`
