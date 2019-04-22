@@ -1,0 +1,2 @@
+class EqptType < ApplicationRecord
+end

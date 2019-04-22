@@ -1,0 +1,2 @@
+class EqptFunction < ApplicationRecord
+end
