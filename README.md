@@ -70,10 +70,22 @@ Este aplicativo permitirá a gestão dos ativos do laboratório da Grid Automati
     ++ Do the migration: `docker-compose run --rm app bundle exec rails db:migrate `
  ++ Devise Generate Views `docker-compose run --rm app bundle exec rails generate devise:views`
 + Modelo para geradores incluindo o --user para nao ter problemas de acesso aos arquivos: `docker-compose run -it --rm --user "$(id -u):$(id -g)" app bundle exec rails g controller page index`
-+ Models
++ Models Generation
  ++ `docker-compose run --rm app bundle exec rails generate model EqptType name:string`
  ++ `docker-compose run --rm app bundle exec rails generate model EqptModel name:string`
- ++ `docker-compose run --rm app bundle exec rails generate model EqptModel name:string`
+ ++ `docker-compose run --rm app bundle exec rails generate model EqptFunction name:string`
  ++ `docker-compose run --rm app bundle exec rails generate model Equipment eqpt_type:references eqpt_model:references eqpt_function:references order_code:string{50} serial_number:string{50} lab_location:string{50} manuf_password:string{50} photo:string has_display:boolean is_available_for_borrow:boolean comments:text`
  ++ `docker-compose run --rm app bundle exec rails generate model Borrow equipment:references user:references request_start_date:datetime request_return_date:datetime start_date:datetime return_date:datetime status:integer location:string`
  ++ `docker-compose run --rm bundle exec rails db:migrate`
++ Make EqptType, EqptModel and EqptFunction name column unique.
+
+```
+class AddIndexToEqptType < ActiveRecord::Migration[5.2]
+  def change
+    execute <<-SQL
+      CREATE UNIQUE INDEX type_lower_name_idx ON eqpt_types (LOWER(name));
+    SQL
+  end
+end
+```
+
