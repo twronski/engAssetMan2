@@ -1,0 +1,2 @@
+class EqptModel < ApplicationRecord
+end
