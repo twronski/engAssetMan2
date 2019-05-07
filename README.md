@@ -76,7 +76,7 @@ Este aplicativo permitirá a gestão dos ativos do laboratório da Grid Automati
  ++ `docker-compose run --rm app bundle exec rails generate model EqptFunction name:string`
  ++ `docker-compose run --rm app bundle exec rails generate model Equipment eqpt_type:references eqpt_model:references eqpt_function:references order_code:string{50} serial_number:string{50} lab_location:string{50} manuf_password:string{50} photo:string has_display:boolean is_available_for_borrow:boolean comments:text`
  ++ `docker-compose run --rm app bundle exec rails generate model Borrow equipment:references user:references request_start_date:datetime request_return_date:datetime start_date:datetime return_date:datetime status:integer location:string`
- ++ `docker-compose run --rm bundle exec rails db:migrate`
+ ++ `docker-compose run --rm app bundle exec rails db:migrate`
  ++ [How to generate index columns and unique] (https://www.leighhalliday.com/requiring-uniqueness-in-rails)
 + Make EqptType, EqptModel and EqptFunction name column unique.
 
