@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_025842) do
+ActiveRecord::Schema.define(version: 2019_05_11_052848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,14 +60,19 @@ ActiveRecord::Schema.define(version: 2019_05_07_025842) do
     t.string "lab_location", limit: 50
     t.string "manuf_password", limit: 50
     t.string "photo"
-    t.boolean "is_available_for_borrow"
-    t.boolean "has_display"
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "asset_number"
-    t.boolean "is_inspected"
     t.date "calibration_expiration"
+    t.integer "is_available_for_borrow"
+    t.integer "is_inspected"
+    t.integer "has_display"
+    t.string "qr_url"
+    t.integer "qty_total"
+    t.integer "qty_available_for_borrow"
+    t.integer "qty_borrowed"
+    t.integer "qty_balance"
     t.index ["eqpt_function_id"], name: "index_equipment_on_eqpt_function_id"
     t.index ["eqpt_model_id"], name: "index_equipment_on_eqpt_model_id"
     t.index ["eqpt_type_id"], name: "index_equipment_on_eqpt_type_id"
@@ -82,6 +87,7 @@ ActiveRecord::Schema.define(version: 2019_05_07_025842) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
