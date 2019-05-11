@@ -93,4 +93,7 @@ end
 ```
 docker-compose run --rm app bundle exec rails generate migration AddDetailsToEquipment asset_number:string is_inspected:bool calibration_expiration:date
 ```
+++ Create Association Between modules
+++ Constraints
+   
 
