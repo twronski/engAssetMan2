@@ -95,5 +95,15 @@ docker-compose run --rm app bundle exec rails generate migration AddDetailsToEqu
 ```
 ++ Create Association Between modules
 ++ Constraints
-   
+++ Check postgres database information
+
+```
+docker-compose up
+docker-compose exec postgres psql -U postgres -> "After docker-compose up"
+\l -> list databases
+\c engAssetMan2_development -> connect to the table
+\d -> list table information
+\d+ -> list table information details
+
+```
 
