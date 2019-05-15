@@ -10,9 +10,7 @@ database = [{:eqpt_type_id=>"IED", :eqpt_model_id=>650, :eqpt_function_id=>"Feed
 puts "Create Type/Models and Functions..."
 
 database.each do |eqpt|
-    EqptType.find_or_create_by(name: eqpt[:eqpt_type_id])
-    EqptModel.find_or_create_by(name: eqpt[:eqpt_model_id])
-    EqptFunction.find_or_create_by(name: eqpt[:eqpt_function_id])
+    puts "Item: #{eqpt}"
 end
 
 puts "Create Type/Models and Functions created..."
@@ -21,22 +19,21 @@ puts "Create Type/Models and Functions created..."
 # Create Equipment
 #==========================================================================================
 
-puts "Create Equipment..."
+#puts "Create Equipment..."
 
-database.each do |eqpt|
-    eqpt_type = EqptType.find_by name: eqpt[:eqpt_type_id]
-    eqpt_model = EqptModel.find_by name: eqpt[:eqpt_model_id]
-    eqpt_function = EqptFunction.find_by name: eqpt[:eqpt_function_id]
+# database.each do |eqpt|
+#     eqpt_type = EqptType.find_by name: eqpt[:eqpt_type_id]
+#     eqpt_model = EqptModel.find_by name: eqpt[:eqpt_model_id]
+#     eqpt_function = EqptFunction.find_by name: eqpt[:eqpt_function_id]
 
-    eqpt[:eqpt_type_id] = eqpt_type.id
-    eqpt[:eqpt_model_id] = eqpt_model.id
-    eqpt[:eqpt_function_id] = eqpt_function.id
+#     eqpt[:eqpt_type_id] = eqpt_type.id
+#     eqpt[:eqpt_model_id] = eqpt_model.id
+#     eqpt[:eqpt_function_id] = eqpt_function.id
+#     Equipment.create(eqpt)
+# end
 
-    Equipment.create(eqpt)
-end
+# puts "Equipment created..."
 
-puts "Equipment created..."
-
-puts Equipment.all
-puts Equipment.count
+# puts Equipment.all
+# puts Equipment.count
 
