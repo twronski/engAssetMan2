@@ -1,4 +1,4 @@
-type_id,model_id,function_id,order_code,serial_number,qty_total,qty_available_for_borrow,qty_borrowed,qty_balance,lab_location,manuf_password,asset_number,has_display,is_available_for_borrow,comments,photo,is_inspected,calibration_expiration,qr_url
+eqpt_type_id,eqpt_model_id,eqpt_function_id,order_code,serial_number,qty_total,qty_available_for_borrow,qty_borrowed,qty_balance,lab_location,manuf_password,asset_number,has_display,is_available_for_borrow,comments,photo,is_inspected,calibration_expiration,qr_url
 IED,650,Feeder,F650MXDF2G1HI6E  HW05,82068501,1,1,0,1,A1.3,,187,,,,,,,
 IED,650,Feeder,F650MXDF2G1HI6E,82068502,1,1,0,1,A1.3,,227,,,,,,,
 IED,650,Feeder,F650BFDF2G1HI6 HW02,81094205,1,1,0,1,A1.2,,241,,,Defeito na Placa de Rede,,,,
