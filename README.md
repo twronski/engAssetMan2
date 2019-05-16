@@ -107,3 +107,5 @@ docker-compose exec postgres psql -U postgres -> "After docker-compose up"
 
 ```
 
+++ ActiveRecord::ActiveRecordError
+

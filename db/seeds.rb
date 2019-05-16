@@ -10,27 +10,30 @@ database = [{:eqpt_type_id=>"IED", :eqpt_model_id=>650, :eqpt_function_id=>"Feed
 
 puts "Create Type/Models and Functions..."
 
-database.each do |eqpt|
+database.each_with_index do |eqpt, i|
     
     begin
-        EqptType.find_or_create_by(name: eqpt[:eqpt_type_id])
+        EqptType.find_or_create_by!(name: eqpt[:eqpt_type_id])
         # puts "Equipment Type #{typ.name} created!"
     rescue => e
-        puts e.to_s
+        puts "Row #{i+2} : #{e.message}"   
+        # puts e.backtrace.inspect 
     end
     
     begin
-        EqptModel.find_or_create_by(name: eqpt[:eqpt_model_id])
+        EqptModel.find_or_create_by!(name: eqpt[:eqpt_model_id])
         # puts "Equipment Model #{mod.name} created!"
     rescue => e
-        puts e.to_s
+        puts "Row #{i+2} : #{e.message}"   
+        # puts e.backtrace.inspect 
     end
 
     begin
-        EqptFunction.find_or_create_by(name: eqpt[:eqpt_function_id])
+        EqptFunction.find_or_create_by!(name: eqpt[:eqpt_function_id])
         # puts "Equipment Function #{rec.name} created!"
     rescue => e
-        puts e.to_s
+        puts "Row #{i+2} : #{e.message}"   
+        #puts e.backtrace.inspect 
     end
 
     EqptType.all
@@ -42,38 +45,30 @@ end
 puts "Create Type/Models and Functions created..."
 
 
-
-#==========================================================================================
-# Create Type/Models/Fuctions
-#==========================================================================================
-
-# puts "Create Type/Models and Functions..."
-
-# database.each do |eqpt|
-#     puts "Item: #{eqpt}"
-# end
-
-# puts "Create Type/Models and Functions created..."
-
-#==========================================================================================
+# ==========================================================================================
 # Create Equipment
-#==========================================================================================
+# ==========================================================================================
 
-#puts "Create Equipment..."
+puts "Create Equipment..."
 
-# database.each do |eqpt|
-#     eqpt_type = EqptType.find_by name: eqpt[:eqpt_type_id]
-#     eqpt_model = EqptModel.find_by name: eqpt[:eqpt_model_id]
-#     eqpt_function = EqptFunction.find_by name: eqpt[:eqpt_function_id]
+database.each_with_index do |eqpt, i|
+    eqpt_type = EqptType.find_by name: eqpt[:eqpt_type_id]
+    eqpt_model = EqptModel.find_by name: eqpt[:eqpt_model_id]
+    eqpt_function = EqptFunction.find_by name: eqpt[:eqpt_function_id]
 
-#     eqpt[:eqpt_type_id] = eqpt_type.id
-#     eqpt[:eqpt_model_id] = eqpt_model.id
-#     eqpt[:eqpt_function_id] = eqpt_function.id
-#     Equipment.create(eqpt)
-# end
+    eqpt[:eqpt_type_id] = eqpt_type.id
+    eqpt[:eqpt_model_id] = eqpt_model.id
+    eqpt[:eqpt_function_id] = eqpt_function.id
+    
+    begin
+        Equipment.create!(eqpt)
+    rescue => e
+        puts "Row #{i+2} : #{e.message}"   
+    end
+end
 
-# puts "Equipment created..."
+puts "Equipment created..."
 
-# puts Equipment.all
-# puts Equipment.count
+puts Equipment.all
+puts Equipment.count
 
