@@ -39,9 +39,7 @@ gem 'materialize-sass'
 gem 'material_icons'
 
 gem 'devise'
-gem 'pundit'
 gem 'sidekiq'
-gem 'rolify'
 gem 'rails_admin', '~> 1.3'
 gem 'friendly_id', '~> 5.2.4'
 

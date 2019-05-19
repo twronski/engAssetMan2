@@ -1,4 +1,5 @@
 class Equipment < ApplicationRecord
+  include Friendlyable
   belongs_to :eqpt_type
   belongs_to :eqpt_model
   belongs_to :eqpt_function
