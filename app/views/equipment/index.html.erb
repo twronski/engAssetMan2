@@ -1,2 +1,30 @@
-<h1>Equipment#index</h1>
-<p>Find me in app/views/equipment/index.html.erb</p>
+<h1>Equipment List</h1>
+
+<table class="striped highlight">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Model</th>
+        <th>Function</th>
+        <th>Order Code</th>
+        <th>Serial Number</th>
+        <th>Lab Location</th>
+        <th>Qty Available</th>
+    </tr>
+    </thead>
+    <tbody>   
+        <% @equipment.each do |equipment| %>
+            <tr>
+                <td><%= equipment.id %></td>
+                <td><%= equipment.eqpt_type.name %></td>
+                <td><%= equipment.eqpt_type.name %></td>
+                <td><%= equipment.eqpt_type.name %></td>
+                <td><%= link_to "#{equipment.order_code}", equipment_path(equipment.hash_id)  %></td>
+                <td><%= equipment.serial_number %></td>
+                <td><%= equipment.lab_location %></td>
+                <td><%= equipment.qty_available_for_borrow %></td>
+            </tr>  
+        <% end %>
+    </tbody>
+</table>
