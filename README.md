@@ -53,15 +53,15 @@ Este aplicativo permitirá a gestão dos ativos do laboratório da Grid Automati
 + Cria base de dados:`docker-compose run --rm app bundle exec rake db:create db:migrate`
 
 + Atualiza Gemfile 
- [materialize issues] (https://github.com/docker-library/ruby/issues/226)
+ [materialize issues](https://github.com/docker-library/ruby/issues/226)
 
 + Mailcatcher:
- + Instala as gems
- + Seta as configuraćões em development.rb
-  `config.action_mailer.default_url_options = { :host => 'localhost:3000' }`
-  `config.action_mailer.delivery_method = :smtp`
-  `config.action_mailer.smtp_settings = { :address => 'mailcatcher', :port => 25 }`
- + Visite: `http://localhost:1080`
+    + Instala as gems
+    + Seta as configuraćões em development.rb
+     `config.action_mailer.default_url_options = { :host => 'localhost:3000' }`
+     `config.action_mailer.delivery_method = :smtp`
+     `config.action_mailer.smtp_settings = { :address => 'mailcatcher', :port => 25 }`
+    + Visite: `http://localhost:1080`
 
 + DEVISE:
     + Rails Generate Devise `docker-compose run --rm app bundle exec rails generate devise:install`
@@ -72,14 +72,14 @@ Este aplicativo permitirá a gestão dos ativos do laboratório da Grid Automati
     + Modelo para geradores incluindo o --user para nao ter problemas de acesso aos arquivos: `docker-compose run -it --rm --user "$(id -u):$(id -g)" app bundle exec rails g controller page index`
     
 + Models Generation
- ++ `docker-compose run --rm app bundle exec rails generate model EqptType name:string`
- ++ `docker-compose run --rm app bundle exec rails generate model EqptModel name:string`
- ++ `docker-compose run --rm app bundle exec rails generate model EqptFunction name:string`
- ++ `docker-compose run --rm app bundle exec rails generate model Equipment eqpt_type:references eqpt_model:references eqpt_function:references order_code:string{50} serial_number:string{50} lab_location:string{50} manuf_password:string{50} photo:string has_display:boolean is_available_for_borrow:boolean comments:text`
- ++ `docker-compose run --rm app bundle exec rails generate model Borrow equipment:references user:references request_start_date:datetime request_return_date:datetime start_date:datetime return_date:datetime status:integer location:string`
- ++ `docker-compose run --rm app bundle exec rails db:migrate`
- ++ [How to generate index columns and unique] (https://www.leighhalliday.com/requiring-uniqueness-in-rails)
-+ Make EqptType, EqptModel and EqptFunction name column unique.
+    + `docker-compose run --rm app bundle exec rails generate model EqptType name:string`
+    + `docker-compose run --rm app bundle exec rails generate model EqptModel name:string`
+    + `docker-compose run --rm app bundle exec rails generate model EqptFunction name:string`
+    + `docker-compose run --rm app bundle exec rails generate model Equipment eqpt_type:references eqpt_model:references eqpt_function:references order_code:string{50} serial_number:string{50} lab_location:string{50} manuf_password:string{50} photo:string has_display:boolean is_available_for_borrow:boolean comments:text`
+    + `docker-compose run --rm app bundle exec rails generate model Borrow equipment:references user:references request_start_date:datetime request_return_date:datetime start_date:datetime return_date:datetime status:integer location:string`
+    + `docker-compose run --rm app bundle exec rails db:migrate`
+    + [How to generate index columns and unique](https://www.leighhalliday.com/requiring-uniqueness-in-rails)
+    + Make EqptType, EqptModel and EqptFunction name column unique.
 
 ```
 class AddIndexToEqptType < ActiveRecord::Migration[5.2]
@@ -90,13 +90,13 @@ class AddIndexToEqptType < ActiveRecord::Migration[5.2]
   end
 end
 ```
-++ Add columns asset_number, is_inspected, calibration_expiration
+    + Add columns asset_number, is_inspected, calibration_expiration
 ```
 docker-compose run --rm app bundle exec rails generate migration AddDetailsToEquipment asset_number:string is_inspected:bool calibration_expiration:date
 ```
-++ Create Association Between modules
-++ Constraints
-++ Check postgres database information
+    ++ Create Association Between modules
+    ++ Constraints
+    ++ Check postgres database information
 
 ```
 docker-compose up
