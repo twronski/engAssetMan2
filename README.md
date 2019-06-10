@@ -107,6 +107,29 @@ docker-compose run --rm app bundle exec rails generate migration AddDetailsToEqu
     \d -> list table information
     \d+ -> list table information details
     ```
++ Create the seed
+    + Save the database from excel (ods) file to csv
+    + transform csv to hash using csv_to_hash.rb
+    + Use the database as hashes as input for the seed file
+       + Seed file implements basic error handling in Ruby but could have used ++ ActiveRecord::ActiveRecordError.
+    + Create the initial database 
 
-++ ActiveRecord::ActiveRecordError
+
+## TODO List
+
+### Features
+
+### Models
+
+### UI
+
+- Remove materialize gem
+- Install html template
+
+### Other Todos
+
+
+
+
+
 
