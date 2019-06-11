@@ -1,0 +1,2 @@
+module EqptFunctionHelper
+end

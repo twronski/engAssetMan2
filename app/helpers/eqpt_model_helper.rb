@@ -1,0 +1,2 @@
+module EqptModelHelper
+end
