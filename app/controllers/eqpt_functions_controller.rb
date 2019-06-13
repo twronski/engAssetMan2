@@ -1,4 +1,4 @@
-class EqptFunctionController < ApplicationController
+class EqptFunctionsController < ApplicationController
   def index
   end
 

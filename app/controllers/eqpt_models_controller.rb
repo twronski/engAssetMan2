@@ -1,4 +1,4 @@
-class EqptModelController < ApplicationController
+class EqptModelsController < ApplicationController
   def index
   end
 
