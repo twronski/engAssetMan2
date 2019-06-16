@@ -118,8 +118,18 @@ docker-compose run --rm app bundle exec rails generate migration AddDetailsToEqu
 ## TODO List
 
 ### Features
+ + Create CRUD for all controllers
+  + Model Equipmemnt
+  + Function Equipmemnt
+  + Type Equipmemnt
+ + Implement admin controller actions
 
 ### Models
+
++ Create settings model
++ implment qrcode image creation when creating equipment model
++ Review validations and associations
++ Include Active Storage functionality on equipment model
 
 ### UI
 
@@ -127,7 +137,12 @@ docker-compose run --rm app bundle exec rails generate migration AddDetailsToEqu
 - Install html template
 
 ### Other Todos
-
+ + Implement qrcode generator services
+ + Implement pdf generator with qrcoded
+ + Implement pundit - roles
+ + Implement workflow for equipment lending
+ + Improv the seeding by reading the csv file
+ + Implement background jobs and email services
 
 
 
